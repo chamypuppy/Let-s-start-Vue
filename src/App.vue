@@ -20,9 +20,9 @@
 
 
   <div>
-    <img src="./assets/room0.jpg" class="room-img"/>
-    <h4  @click="모달창열렸니 = true">{{products[0]}}</h4>
-    <p>{{ price1 }} 만원</p>
+    <img :src="원룸들[0].image" class="room-img"/> <!-- 태그 속성 안에 데이터를 삽입할 때에는 앞에 콜론을 붙여야 함!!! -->
+    <h4  @click="모달창열렸니 = true">{{ 원룸들[0].title }}</h4>
+    <p>{{ 원룸들[0].price }} 원</p>
     <button @click="신고수[0]++">허위매물신고</button>
     <span>신고 수 : {{신고수[0]}}</span>
   </div>
@@ -48,13 +48,15 @@
 </template>
 
 <script>
-// import 
+
+import oneroomInfo from './assets/oneroom' /* vue의 특징4, 5 - 다른 js파일에 있는 오브젝트 데이터들을 export import하여 가져올 수 있다. 아땨 확장자명은 생략 가능*/
 
 export default {
   
   name: 'App',
-  data() { /* 데이터 보관함 - vue의 특징1 (데이터는 오브젝트 형태로 저장)*/
+  data() {
     return {
+      원룸들 : oneroomInfo,
       모달창열렸니 : false, /* 리액트에서는 이러한 데이터 보관함을 state라고 한다. true(혹은 0)가 열린상태, false(혹은 1)가 닫힌 상태.  */
       신고수 : [0, 0, 0],
       price1 : 60,
