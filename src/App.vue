@@ -19,31 +19,15 @@
 
 
 
-  <div>
-    <img :src="원룸들[0].image" class="room-img"/> <!-- 태그 속성 안에 데이터를 삽입할 때에는 앞에 콜론을 붙여야 함!!! -->
-    <h4  @click="모달창열렸니 = true">{{ 원룸들[0].title }}</h4>
-    <p>{{ 원룸들[0].price }} 원</p>
+  <div v-for="(a, i) in 6" :key="i">
+    <img :src="원룸들[i].image" class="room-img"/> <!-- 태그 속성 안에 데이터를 삽입할 때에는 앞에 콜론을 붙여야 함!!! -->
+    <h4  @click="모달창열렸니 = true">{{ 원룸들[i].title }}</h4>
+    <p>{{ 원룸들[i].price }} 원</p>
     <button @click="신고수[0]++">허위매물신고</button>
     <span>신고 수 : {{신고수[0]}}</span>
   </div>
 
 
-
-  <div>
-    <img src="./assets/room1.jpg" class="room-img"/>
-    <h4>{{products[1]}}</h4>
-    <p>{{ price2 }} 만원</p>
-    <button @click="신고수[1]++">허위매물신고</button>
-    <span>신고 수 : {{신고수[1]}}</span>
-  </div>
-
-  <div>
-    <img src="./assets/room2.jpg" class="room-img"/>
-    <h4>{{products[2]}}</h4>
-    <p>{{ price2 }} 만원</p>
-    <button @click="신고수[2]++">허위매물신고</button>
-    <span>신고 수 : {{신고수[2]}}</span>
-  </div>
 
 </template>
 
